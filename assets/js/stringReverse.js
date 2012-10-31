@@ -1,5 +1,5 @@
 function revString (str) {
-    var tail = str.length || 0,
+    var tail = typeof str == 'string' ? str.length : 0,
         arr = tail > 0? str.split('') : null,
         head = 0,
         // If even number, then 1/2 total == done
@@ -23,8 +23,12 @@ function revString (str) {
         head++;
         
     }
-    return arr.join('');    
+    return arr ? arr.join('') : "bad input";    
 }
 
 console.log(revString('catfish'));
 console.log(revString('foot'));
+//bad inputs
+console.log(revString(5));
+console.log(revString(''));
+console.log(revString());
